@@ -12,6 +12,7 @@ namespace Algorithms.Graphs
         int NumberOfEdges { get; }
         void AddEdge(int start, int end, int weight);
         void AddVertex();
+        List<int> GetReachableNeighbours(int vertex);
         int GetWeight(int start, int end);
         bool IsDirected { get; }
     }
