@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Algorithms.Graphs
 {
-    public class DepthFirstSearch : IGraphSearch
+    public class BreadthFirstSearch : IGraphSearch
     {
-        private readonly IGraph Graph;
-
-        public DepthFirstSearch(IGraph graph)
+        public BreadthFirstSearch(IGraph graph)
         {
             Graph = graph;
         }
 
+        public IGraph Graph { get; }
+
         public bool AreConnected(int start, int goal)
         {
+            //check that start and goal are not same and are within bound
             ValidateInputs(start, goal);
 
-            var stack = new Stack<int>();
+            var queue = new Queue<int>();
             var listOfVisited = new HashSet<int>();
 
-            stack.Push(start);
-            while (stack.Count > 0)
+            queue.Enqueue(start);
+            while (queue.Count > 0)
             {
-                var curr = stack.Pop();
+                var curr = queue.Dequeue();
 
                 if (listOfVisited.Contains(curr))
                 {
@@ -31,23 +33,25 @@ namespace Algorithms.Graphs
                 }
 
                 listOfVisited.Add(curr);
-                var neighboursOfCurr = Graph.GetReachableNeighbours(curr);
-                foreach (var neighbour in neighboursOfCurr.Where(n => !listOfVisited.Contains(n)))
+                var neighbours = Graph.GetReachableNeighbours(curr);
+                foreach (var neighbour in neighbours.Where(n => !listOfVisited.Contains(n)))
                 {
                     if (neighbour == goal)
                     {
                         return true;
                     }
-                    stack.Push(neighbour);
+
+                    queue.Enqueue(neighbour);
                 }
             }
 
             return false;
         }
 
-        private void ValidateInputs(int start, int end)
+        private void ValidateInputs(int start, int goal)
         {
-            if (start >= Graph.NumberOfVertices || end >= Graph.NumberOfVertices || start == end)
+            if (start >= Graph.NumberOfVertices || goal >= Graph.NumberOfVertices 
+                || start == goal)
             {
                 throw new ArgumentOutOfRangeException();
             }
@@ -55,21 +59,16 @@ namespace Algorithms.Graphs
 
         public List<int> GetPath(int start, int goal)
         {
-            var stack = new Stack<int>();
-            var listOfVisited = new HashSet<int>();
-            
-            //will hold child, parent
+            ValidateInputs(start, goal);
+
+            var queue = new Queue<int>();
             var parentMap = new Dictionary<int, int>();
+            var listOfVisited = new HashSet<int>();
 
-            stack.Push(start);
-            while (stack.Count > 0)
+            queue.Enqueue(start);
+            while (queue.Count > 0)
             {
-                var curr = stack.Pop();
-
-                if (curr == goal)
-                {
-                    return Path(start, goal, parentMap);
-                }
+                var curr = queue.Dequeue();
 
                 if (listOfVisited.Contains(curr))
                 {
@@ -81,23 +80,24 @@ namespace Algorithms.Graphs
                 foreach (var neighbour in neighbours.Where(n => !listOfVisited.Contains(n)))
                 {
                     parentMap.AddOrUpdate(neighbour, curr);
-
                     if (neighbour == goal)
                     {
                         return Path(start, goal, parentMap);
                     }
+
+                    queue.Enqueue(neighbour);
                 }
             }
 
             return null;
         }
 
-        private List<int> Path(int start, int goal, IDictionary<int, int> parentMap)
+        private List<int> Path(int start, int goal, Dictionary<int, int> parentMap)
         {
             var stack = new Stack<int>();
             var current = goal;
             stack.Push(current);
-
+            
             while (true)
             {
                 current = parentMap[current];
@@ -108,18 +108,6 @@ namespace Algorithms.Graphs
                     return stack.ToList();
                 }
             }
-        }
-    }
-
-    public static class ExtensionMethods
-    {
-        public static void AddOrUpdate<T, TV>(this IDictionary<T, TV> dictionary, T key, TV value)
-        {
-            if (dictionary.ContainsKey(key))
-            {
-                dictionary.Remove(key);
-            }
-            dictionary.Add(key, value);
-        }
+        }   
     }
 }

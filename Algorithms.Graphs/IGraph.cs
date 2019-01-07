@@ -10,7 +10,7 @@ namespace Algorithms.Graphs
     {
         int NumberOfVertices { get; }
         int NumberOfEdges { get; }
-        void AddEdge(int start, int end, int weight);
+        void AddEdge(int start, int end, int weight = 0);
         void AddVertex();
         List<int> GetReachableNeighbours(int vertex);
         int GetWeight(int start, int end);
