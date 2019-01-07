@@ -18,19 +18,19 @@ namespace Algorithms.Graphs
             ValidateInputs(start, goal);
 
             var stack = new Stack<int>();
-            var dictOfHasVisited = new Dictionary<int, int>();
+            var listOfVisited = new HashSet<int>();
             while (stack.Count > 0)
             {
                 var curr = stack.Pop();
 
-                if (dictOfHasVisited.ContainsKey(curr))
+                if (listOfVisited.Contains(curr))
                 {
                     continue;
                 }
 
-                dictOfHasVisited.Add(curr, curr);
+                listOfVisited.Add(curr);
                 var neighboursOfCurr = Graph.GetReachableNeighbours(curr);
-                foreach (var neighbour in neighboursOfCurr.Where(n => !dictOfHasVisited.ContainsKey(n)))
+                foreach (var neighbour in neighboursOfCurr.Where(n => !listOfVisited.Contains(n)))
                 {
                     if (neighbour == goal)
                     {
@@ -54,7 +54,7 @@ namespace Algorithms.Graphs
         public List<int> GetPath(int start, int goal)
         {
             var stack = new Stack<int>();
-            var dictOfHasVisited = new Dictionary<int, int>();
+            var listOfVisited = new HashSet<int>();
             
             //will hold child, parent
             var parentMap = new Dictionary<int, int>();
@@ -69,14 +69,14 @@ namespace Algorithms.Graphs
                     return Path(start, goal, parentMap);
                 }
 
-                if (dictOfHasVisited.ContainsKey(curr))
+                if (listOfVisited.Contains(curr))
                 {
                     continue;
                 }
 
-                dictOfHasVisited.Add(curr, curr);
+                listOfVisited.Add(curr);
                 var neighbours = Graph.GetReachableNeighbours(curr);
-                foreach (var neighbour in neighbours.Where(n => !dictOfHasVisited.ContainsKey(n)))
+                foreach (var neighbour in neighbours.Where(n => !listOfVisited.Contains(n)))
                 {
                     parentMap.AddOrUpdate(neighbour, curr);
 
