@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithms.Graphs
 {
     public class DepthFirstSearch : IGraphSearch
     {
-        private readonly IGraph _graph;
+        private readonly IGraph Graph;
 
         public DepthFirstSearch(IGraph graph)
         {
-            _graph = graph;
+            Graph = graph;
         }
 
         public bool AreConnected(int start, int goal)
         {
-            AssertWithinBounds(start, goal);
+            ValidateInputs(start, goal);
 
             var stack = new Stack<int>();
             var dictOfHasVisited = new Dictionary<int, int>();
@@ -32,7 +29,7 @@ namespace Algorithms.Graphs
                 }
 
                 dictOfHasVisited.Add(curr, curr);
-                var neighboursOfCurr = _graph.GetReachableNeighbours(curr);
+                var neighboursOfCurr = Graph.GetReachableNeighbours(curr);
                 foreach (var neighbour in neighboursOfCurr.Where(n => !dictOfHasVisited.ContainsKey(n)))
                 {
                     if (neighbour == goal)
@@ -46,11 +43,11 @@ namespace Algorithms.Graphs
             return false;
         }
 
-        private void AssertWithinBounds(int start, int end)
+        private void ValidateInputs(int start, int end)
         {
-            if (start >= _graph.NumberOfVertices || end >= _graph.NumberOfVertices || start == end)
+            if (start >= Graph.NumberOfVertices || end >= Graph.NumberOfVertices || start == end)
             {
-                throw new InvalidOperationException();
+                throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -78,7 +75,7 @@ namespace Algorithms.Graphs
                 }
 
                 dictOfHasVisited.Add(curr, curr);
-                var neighbours = _graph.GetReachableNeighbours(curr);
+                var neighbours = Graph.GetReachableNeighbours(curr);
                 foreach (var neighbour in neighbours.Where(n => !dictOfHasVisited.ContainsKey(n)))
                 {
                     parentMap.AddOrUpdate(neighbour, curr);
