@@ -96,7 +96,7 @@ namespace Algorithms.Graphs
                 curr = parentMap[curr];
                 path.Push(curr);
 
-                if (curr == goal)
+                if (curr == start)
                 {
                     return path.ToList();
                 }
