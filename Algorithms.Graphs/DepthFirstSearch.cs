@@ -81,11 +81,11 @@ namespace Algorithms.Graphs
                 foreach (var neighbour in neighbours.Where(n => !listOfVisited.Contains(n)))
                 {
                     parentMap.AddOrUpdate(neighbour, curr);
-
                     if (neighbour == goal)
                     {
                         return Path(start, goal, parentMap);
                     }
+                    stack.Push(neighbour);
                 }
             }
 
