@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Graphs", "Algorithms.Graphs\Algorithms.Graphs.csproj", "{4B6D8634-F827-4484-8F67-7D3E0D3EC5DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.GraphTests", "Algorithms.GraphTests\Algorithms.GraphTests.csproj", "{0D5438E0-D595-4B8E-BE65-6D950875A66B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.GraphTests", "Algorithms.GraphTests\Algorithms.GraphTests.csproj", "{0D5438E0-D595-4B8E-BE65-6D950875A66B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

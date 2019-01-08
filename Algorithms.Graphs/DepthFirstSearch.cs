@@ -110,16 +110,4 @@ namespace Algorithms.Graphs
             }
         }
     }
-
-    public static class ExtensionMethods
-    {
-        public static void AddOrUpdate<T, TV>(this IDictionary<T, TV> dictionary, T key, TV value)
-        {
-            if (dictionary.ContainsKey(key))
-            {
-                dictionary.Remove(key);
-            }
-            dictionary.Add(key, value);
-        }
-    }
 }
