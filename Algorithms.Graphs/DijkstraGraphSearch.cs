@@ -55,6 +55,7 @@ namespace Algorithms.Graphs
             var parentMap = new Dictionary<int, int>();
             var priorityQueue = new List<ValueTuple<int, int>>();
             var visited = new HashSet<int>();
+            var cumulativeWeight = new Dictionary<Tuple<int, int>, int>();
 
             priorityQueue.Enqueue(start, 0);
             while (priorityQueue.Count > 0)
@@ -78,7 +79,10 @@ namespace Algorithms.Graphs
                 {
                     var weight = Graph.GetWeight(vertex, unvisitedNeighbour);
                     priorityQueue.Enqueue(unvisitedNeighbour, weight + curr.weight);
-                    parentMap.Add(unvisitedNeighbour, vertex);
+
+                    //Adds if parent map doesn't have the key along with updating cumulative weight dictionary
+                    //Otherwise update if the new path has less weight
+                    parentMap.AddOrUpdate(unvisitedNeighbour, vertex, cumulativeWeight, weight + curr.weight);
                 }
             }
 

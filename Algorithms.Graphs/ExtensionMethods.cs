@@ -16,6 +16,27 @@ namespace Algorithms.Graphs
             dictionary.Add(key, value);
         }
 
+        public static void AddOrUpdate<T, TV>(this IDictionary<T, TV> dictionary, T key, TV value, Dictionary<Tuple<T, TV>, int> cummulativeWeightDictionary, int cummulativeWeight)
+        {
+            //child already has an existing parent
+            if (dictionary.ContainsKey(key))
+            {
+                var existingParent = dictionary[key];
+                var tuple = new Tuple<T, TV>(key, existingParent);
+                var existingWeight = cummulativeWeightDictionary[tuple];
+                if (existingWeight <= cummulativeWeight)
+                {
+                    return;
+                }
+
+                dictionary.Remove(key);
+                cummulativeWeightDictionary.Remove(tuple);
+            }
+
+            dictionary.Add(key, value);
+            cummulativeWeightDictionary.Add(new Tuple<T, TV>(key, value), cummulativeWeight);
+        }
+
         public static (int vertex, int weight) Dequeue(this List<ValueTuple<int, int>> priorityQueue)
         {
             var itemToRemove = priorityQueue.OrderBy(i => i.Item2).First();
