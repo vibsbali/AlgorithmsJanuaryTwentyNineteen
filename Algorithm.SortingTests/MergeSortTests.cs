@@ -18,7 +18,7 @@ namespace Algorithm.SortingTests
             var mergeSort = new MergeSort<int>();
 
             mergeSort.Sort(arrayToSort);
-            for (int i = 0; i < arrayToSort.Length - 1; i++)
+            for (int i = 0; i < arrayToSort.Length; i++)
             {
                 Assert.IsTrue(arrayToSort[i] == copy[i], $"Should be false i is {i} and values are {arrayToSort[i]}, {copy[i]}");
             }
@@ -32,7 +32,7 @@ namespace Algorithm.SortingTests
             var mergeSort = new MergeSort<int>();
 
             mergeSort.Sort(arrayToSort);
-            for (int i = 0; i < arrayToSort.Length - 1; i++)
+            for (int i = 0; i < arrayToSort.Length; i++)
             {
                 Assert.IsTrue(arrayToSort[i] == copy[i], $"Should be false i is {i} and values are {arrayToSort[i]}, {copy[i]}");
             }
@@ -61,7 +61,7 @@ namespace Algorithm.SortingTests
             var mergeSort = new MergeSort<int>();
 
             mergeSort.Sort(arrayToSort);
-            for (int i = 0; i < arrayToSort.Length - 1; i++)
+            for (int i = 0; i < arrayToSort.Length; i++)
             {
                 Assert.IsTrue(arrayToSort[i] == copy[i], $"Should be false i is {i} and values are {arrayToSort[i]}, {copy[i]}");
             }
@@ -75,7 +75,7 @@ namespace Algorithm.SortingTests
             var mergeSort = new MergeSort<int>();
 
             mergeSort.Sort(arrayToSort);
-            for (int i = 0; i < arrayToSort.Length - 1; i++)
+            for (int i = 0; i < arrayToSort.Length; i++)
             {
                 Assert.IsTrue(arrayToSort[i] == copy[i], $"Should be false i is {i} and values are {arrayToSort[i]}, {copy[i]}");
             }
