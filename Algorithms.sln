@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.StringSearching"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.StringSearchTests", "Algorithms.StringSearchTests\Algorithms.StringSearchTests.csproj", "{301083AC-BE65-400B-99B5-E1CD692BC370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sorting", "Algorithms.Sorting\Algorithms.Sorting.csproj", "{377EF77A-8071-47EE-A302-6C8A3D530163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Sorting", "Algorithms.Sorting\Algorithms.Sorting.csproj", "{377EF77A-8071-47EE-A302-6C8A3D530163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm.SortingTests", "Algorithm.SortingTests\Algorithm.SortingTests.csproj", "{C0CCAAE2-8465-40EE-9E36-9FCC70AB5410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm.SortingTests", "Algorithm.SortingTests\Algorithm.SortingTests.csproj", "{C0CCAAE2-8465-40EE-9E36-9FCC70AB5410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.AssociativeArrays", "Algorithms.AssociativeArrays\Algorithms.AssociativeArrays.csproj", "{9AD40940-2C9B-47F9-BB7C-8B8AFBC7EBFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C0CCAAE2-8465-40EE-9E36-9FCC70AB5410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0CCAAE2-8465-40EE-9E36-9FCC70AB5410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0CCAAE2-8465-40EE-9E36-9FCC70AB5410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD40940-2C9B-47F9-BB7C-8B8AFBC7EBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD40940-2C9B-47F9-BB7C-8B8AFBC7EBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD40940-2C9B-47F9-BB7C-8B8AFBC7EBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD40940-2C9B-47F9-BB7C-8B8AFBC7EBFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

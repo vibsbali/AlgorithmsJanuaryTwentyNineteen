@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algorithms.AssociativeArrays
+{
+    public class Tries<T>
+        where T: IComparable<T>
+    {
+        
+    }
+}
