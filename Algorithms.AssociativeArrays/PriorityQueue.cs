@@ -87,16 +87,15 @@ namespace Algorithms.AssociativeArrays
             var leftChild = index * 2 + 1;
             var rightChild = index * 2 + 2;
 
-            if (BackingStore[leftChild].CompareTo(BackingStore[rightChild]) < 0)
+            var minChild = BackingStore[leftChild].CompareTo(BackingStore[rightChild]) < 0 ? leftChild : rightChild;
+
+            //If we have matched min heap property then no need to go down the level
+            if (BackingStore[minChild].CompareTo(BackingStore[index]) >= 0)
             {
-                Swap(index, leftChild);
-                SwimDown(leftChild);
+                return;
             }
-            else
-            {
-                Swap(index, rightChild);
-                SwimDown(rightChild);
-            }
+            Swap(index, minChild);
+            SwimDown(leftChild);
         }
 
         public int Count { get; private set; }
