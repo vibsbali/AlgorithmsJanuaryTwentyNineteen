@@ -30,13 +30,13 @@ namespace Algorithms.AssociativeArrays
         private void SwimUp()
         {
             var index = Count;
-            var parent = (index / 2) - 1;
+            var parent = (index - 1) / 2;
             while (BackingStore[index].CompareTo(BackingStore[parent]) < 0 && parent >= 0)
             {
                 Swap(index, parent);
 
                 index = parent;
-                parent = (index / 2) - 1;
+                parent = (index  -1) / 2;
             }
         }
 
