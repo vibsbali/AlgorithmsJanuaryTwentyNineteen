@@ -8,40 +8,24 @@ namespace Algorithms.Console
    {
       static void Main(string[] args)
       {
-         var arrayToSort = new[] { 3, int.MaxValue, int.MinValue, 5, 12, 2, 34, 1, -4, -4, 0 }; 
-         
-         var priorityQueue = new PriorityQueue<int>();
+         var trie = new Trie(256);
+         Assert.IsTrue(trie.Count == 0, $"Should be 0 but was {trie.Count}");
 
-         foreach (var i in arrayToSort)
+         trie.Add("a");
+         Assert.IsTrue(trie.Count == 1, $"Should be 1 but was {trie.Count}");
+
+         trie.Add("alpha");
+         trie.Add("beta");
+         trie.Add("gamma");
+         trie.Add("Amber");
+         trie.Add("Amazing");
+         trie.Add("between");
+         trie.Add("benzer");
+
+         var listOfWords = trie.GetWords("bet");
+         foreach (var listOfWord in listOfWords)
          {
-            priorityQueue.Enqueue(i);
-         }
-
-         for (int i = 0; i < 3; i++)
-         {
-            var firstItem = priorityQueue.Dequeue();
-            System.Console.WriteLine(firstItem);
-            var secondItem = priorityQueue.Dequeue();
-            System.Console.WriteLine(secondItem);
-            Assert.IsTrue(firstItem <= secondItem, $"Should be true values are {firstItem}, {secondItem}");
-         }
-
-
-         priorityQueue.Enqueue(4);
-         priorityQueue.Enqueue(int.MaxValue);
-         priorityQueue.Enqueue(-42);
-         priorityQueue.Enqueue(33);
-         priorityQueue.Enqueue(13);
-         priorityQueue.Enqueue(3);
-         priorityQueue.Enqueue(333);
-
-         for (int i = 0; i < 3; i++)
-         {
-            var firstItem = priorityQueue.Dequeue();
-            System.Console.WriteLine(firstItem);
-            var secondItem = priorityQueue.Dequeue();
-            System.Console.WriteLine(secondItem);
-            Assert.IsTrue(firstItem <= secondItem, $"Should be true values are {firstItem}, {secondItem}");
+            System.Console.WriteLine(listOfWord);
          }
       }
    }
