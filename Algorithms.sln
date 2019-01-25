@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.AssociativeArray
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Console", "Algorithms.Console\Algorithms.Console.csproj", "{A62FEDCB-D173-49E5-BBCA-5CA79069F5C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.LinkedLists", "Algorithms.LinkedLists\Algorithms.LinkedLists.csproj", "{8216ECE3-7AE8-483D-917A-7744CFFD15D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.LinkedLists", "Algorithms.LinkedLists\Algorithms.LinkedLists.csproj", "{8216ECE3-7AE8-483D-917A-7744CFFD15D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.LinkedListTests", "Algorithms.LinkedListTests\Algorithms.LinkedListTests.csproj", "{F36F7E9C-5A4B-48DF-9E58-A03FA5E60D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.LinkedListTests", "Algorithms.LinkedListTests\Algorithms.LinkedListTests.csproj", "{F36F7E9C-5A4B-48DF-9E58-A03FA5E60D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.GraphRevised", "Algorithms.GraphRevised\Algorithms.GraphRevised.csproj", "{90F8068E-E8C7-4E2C-B2C4-8307FEBC6E31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{F36F7E9C-5A4B-48DF-9E58-A03FA5E60D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F36F7E9C-5A4B-48DF-9E58-A03FA5E60D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F36F7E9C-5A4B-48DF-9E58-A03FA5E60D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F8068E-E8C7-4E2C-B2C4-8307FEBC6E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F8068E-E8C7-4E2C-B2C4-8307FEBC6E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F8068E-E8C7-4E2C-B2C4-8307FEBC6E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F8068E-E8C7-4E2C-B2C4-8307FEBC6E31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
