@@ -72,6 +72,7 @@ namespace Algorithms.GraphRevised
                 }
             }
 
+            _backingStore = temp;
             ++NumberOfVertex;
         }
     }
